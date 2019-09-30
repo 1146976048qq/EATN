@@ -1,2 +1,3 @@
 # MATN
-model for Multi-head Attention Transfer Network
+
+# Dataset about aspect-level sentiment classification
