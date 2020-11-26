@@ -1,20 +1,19 @@
 
-#### Large-scale: 100k for each domain
 
-#### Multi-domain: Restaurant, Hotel, Beautyspa
+##### Multi-domain: Restaurant, Hotel, Beautyspa
 
-#### Aspect-category (AC): Coarse-grained asepct
+##### Aspect-category (AC): Coarse-grained asepct (http://alt.qcri.org/semeval2014/task4/ subtask 4.)
 
 The sentence containing multiple aspects are arranged together.
 
-#### Label Mapping
+##### Label Mapping
 
 positive: 1 neutral: 0 negative: -1
 
 
 # Citation
 
-If the data is useful for your research, please be kindly cite the original paper as follows:
+If the data is useful for your research, please cite the original paper:
 
 ```
 @article{li2018exploiting,
