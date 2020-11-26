@@ -1,0 +1,17 @@
+#requirments
+
+
+os
+sys
+math
+time
+pandas
+logging
+argparse
+
+random
+datetime
+numpy>=1.13.3
+torch>=0.4.0
+transformers
+pytorch_pretrained_bert
