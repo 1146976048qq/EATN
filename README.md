@@ -38,19 +38,17 @@ To install requirements, please run `pip install -r requirements.txt.`
 
 — 1. Get the BERT pre-trained model and generate the embeddings ;
 
-​			    — You can get the Word Embeddings through official BERT or Bert-As-Service ;
+​               — You can get the Word Embeddings through official [BERT](https://github.com/google-research/bert) or [Bert-As-Service](https://bert-as-service.readthedocs.io/en/latest/) ;
 
-​				— [Google Word2Vec](https://code.google.com/archive/p/word2vec/) ;
+​               — [Google Word2Vec](https://code.google.com/archive/p/word2vec/) ;
+
+​               — [GloVe](https://nlp.stanford.edu/projects/glove/) ;
 
 — 2. Put the pre-trained model (Google-Word2Vec/Bert) to the coresponseding path ;
 
 
 
-**Run the baseline model :** 
+**Run the models :** 
 
- — 1. python train_base.py --model_name xxx --dataset xxx
-
-**Run the EATN model :** 
-
-— 1. python train_model.py 
+ —  python train_base.py --model_name xxx --dataset xxx
 
