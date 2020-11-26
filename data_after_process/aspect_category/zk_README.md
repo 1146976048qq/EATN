@@ -14,7 +14,7 @@ positive: 1 neutral: 0 negative: -1
 
 # Citation
 
-If the data is useful for your research, please be kindly to give us stars and cite our paper as follows:
+If the data is useful for your research, please be kindly cite the original paper as follows:
 
 ```
 @article{li2018exploiting,
