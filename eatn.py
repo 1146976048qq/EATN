@@ -27,8 +27,26 @@ def main():
     parser = argparse.ArgumentParser()
     #parser.add_argument('--model_name', default='bert_aspect', type=str)
     
-    prefix_train = '../data/Experiment/aspect/2014_laptop/'
-    prefix_test = '../data/Experiment/aspect/2014_resturant/'
+    # aspect-term dataset
+    prefix_train = '../data_after_process/aspect_term/2014_laptop/'
+    # prefix_train = '../data_after_process/aspect_term/2014_resturant/'
+    # prefix_train = '../data_after_process/aspect_term/2014_twitter/'
+
+    prefix_test = '../data_after_process/aspect_term/2014_resturant/'
+    # prefix_train = '../data_after_process/aspect_term/2014_laptop/'
+    # prefix_train = '../data_after_process/aspect_term/2014_twitter/'
+
+
+    # aspect-category dataset
+    # prefix_train = '../data_after_process/aspect_term/2014_laptop/'
+    # prefix_train = '../data_after_process/aspect_term/2014_resturant/'
+    # prefix_train = '../data_after_process/aspect_term/2014_twitter/'
+
+    # prefix_train = '../data_after_process/aspect_category/restaurant/'
+    # prefix_train = '../data_after_process/aspect_category/hotel/'
+    # prefix_train = '../data_after_process/aspect_category/beautyspa/'
+
+
     source_train = prefix_train + 'train.csv'
     target_train = prefix_test + 'train.csv'
     source_dev = prefix_train + 'test.csv'
@@ -80,20 +98,20 @@ def main():
     #                                    output_mode="classification",label_available=True, batch_size=16, num_workers=-1)
     bert_cross_proc = BertCrossFeatures(tokenizer, max_seq_len, domain_label_map, sentiment_label_map)
     train_data = get_cross_aspect_batch(source_train_examples,target_train_examples,bert_cross_proc,label_available=True, batch_size=params['batch_size'], num_workers=-1)
-#    logging.info('train_data {}'.format(train_data[0]))
+    logging.info('train_data {}'.format(train_data[0]))
     dev_data = get_cross_aspect_batch(source_dev_examples,target_dev_examples,bert_cross_proc,label_available=True, batch_size=params['batch_size'], num_workers=-1)
- #   logging.info('dev_data {}'.format(dev_data[0]))
+    logging.info('dev_data {}'.format(dev_data[0]))
     
     bert_cross_aspect_model = BertForCrossAspect.from_pretrained('/home/kkzhang/bert_pytorch_model/bert_base', params)
    # bert_aspect_model = BertForAspect.from_pretrained('bert-base-uncased', params)
 
-    device = torch.device('cpu')
-    #device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    #device = torch.device('cpu')
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(device)
     
-    #if device!='cpu' and  torch.cuda.device_count()> 1:
-    #  logging.info('has {} gpus'.format(torch.cuda.device_count()))
-    #  bert_cross_aspect_model = nn.DataParallel(bert_cross_aspect_model)
+    if device!='cpu' and  torch.cuda.device_count()> 1:
+      logging.info('has {} gpus'.format(torch.cuda.device_count()))
+      bert_cross_aspect_model = nn.DataParallel(bert_cross_aspect_model)
             
     bert_cross_aspect_model.to(device)
     
@@ -111,8 +129,8 @@ def main():
     bert_cross_aspect_trainer = BertMultiTrainer(device,batch_size=params['batch_size'],n_epochs=params['n_epochs'],min_clip_val=-1.0, max_clip_val=1.0)
     bert_cross_aspect_trainer.train_and_evaluate(bert_cross_aspect_model,train_data,dev_data,optimizer,metrics,loss_fn=loss_fn,model_dir='./cross_aspect_results/')
 
-#    bert_aspect_pred = BertPredictor(device, model=bert_aspect_model, max_seq_length=max_seq_len, tokenizer=tokenizer, X_proc=ps_proc, target_int2label_dict=inverse_label_map,
- #                        target_label2int_dict=label_map)
+    bert_aspect_pred = BertPredictor(device, model=bert_aspect_model, max_seq_length=max_seq_len, tokenizer=tokenizer, X_proc=ps_proc, target_int2label_dict=inverse_label_map,
+                         target_label2int_dict=label_map)
 
 
 if __name__ == '__main__':

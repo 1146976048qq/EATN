@@ -4,26 +4,26 @@ import torch.optim as optim
 from torch.autograd import Variable
 from torch.nn import functional as F
 import logging
+from layers import mkmmd
 from pytorch_pretrained_bert import BertModel, BertForSequenceClassification
+from pre_models.transformer.transformer import ScaledDotProductAttention, clones, MultiHeadAttention, LayerNorm
 
-from deepqa_models.transformer.transformer import ScaledDotProductAttention, clones, MultiHeadAttention, LayerNorm
-
-class BertForCrossAspect(BertForSequenceClassification):
+class EATN(BertForSequenceClassification):
     """
-    Bert For aspect term cross domain multi Task
+    Bert For aspect cross domain multi Task
     """
     def __init__(self, config, params):
-        super(BertForCrossAspect, self).__init__(config, params['aspect_n_labels'])
+        super(EATN, self).__init__(config, params['aspect_n_labels'])
         self.aspect_n_labels = params['aspect_n_labels']
         self.domain_n_labels = params['domain_n_labels']
         
         self.bert = BertModel(config)
         self.dropout = nn.Dropout(config.hidden_dropout_prob)
-        self.domain_classifier = nn.Linear(config.hidden_size, self.domain_n_labels)
-        self.aspect_classifier = nn.Linear(config.hidden_size, self.aspect_n_labels)
         self.apply(self.init_bert_weights)
         self.multiheads = MultiHeadAttention(config.hidden_size, params['heads'], keep_prob=params['keep_prob'])
-        
+        self.domain_classifier = nn.Linear(config.hidden_size, self.domain_n_labels)
+        self.aspect_classifier = nn.Linear(config.hidden_size, self.aspect_n_labels)
+
     def get_bert_encoding(self, input_ids, token_type_ids=None, attention_mask=None):
         """
         Args:
@@ -78,7 +78,9 @@ class BertForCrossAspect(BertForSequenceClassification):
           
           domain_loss = F.cross_entropy(source_domain_logits, source_domain_labels.view(-1)) + F.cross_entropy(target_domain_logits, target_domain_labels.view(-1))
           aspect_loss = F.cross_entropy(source_aspect_logits, source_aspect_labels.view(-1))
-          loss = domain_loss + aspect_loss
+          mmd_loss = mkmmd(source_aspect_logits, target_domain_logits)
+
+          loss = domain_loss + aspect_loss + mmd_loss
           #return loss, source_domain_logits, target_domain_logits, source_aspect_logits
           return loss, source_domain_prediction, target_domain_prediction, source_aspect_prediction
           

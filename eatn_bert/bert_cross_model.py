@@ -6,7 +6,7 @@ from torch.nn import functional as F
 import logging
 from pytorch_pretrained_bert import BertModel, BertForSequenceClassification
 
-from deepqa_models.transformer.transformer import ScaledDotProductAttention, clones, MultiHeadAttention, LayerNorm
+from pre_models.transformer.transformer import ScaledDotProductAttention, clones, MultiHeadAttention, LayerNorm
 
 class BertForCrossAspect(BertForSequenceClassification):
     """
