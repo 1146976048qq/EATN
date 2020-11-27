@@ -2,7 +2,6 @@
 
 Dataset and source code for **"EATN: An Efﬁcient Adaptive Transfer Network for Aspect-level Sentiment Analysis".**
 
-# 
 
 ### Requirements
 
@@ -21,8 +20,7 @@ Dataset and source code for **"EATN: An Efﬁcient Adaptive Transfer Network for
 To install requirements, please run `pip install -r requirements.txt.`
 
 
-
-# Environment
+### Environment
 
 — OS: CentOS Linux release 7.4.1708
 
@@ -33,8 +31,7 @@ To install requirements, please run `pip install -r requirements.txt.`
 — CUDA: 10.2
 
 
-
-# Running
+### Running
 
 **Prepare the Pre-trained model :**
 
@@ -59,8 +56,10 @@ To install requirements, please run `pip install -r requirements.txt.`
  —  python train_eatn.py
 
 
-**Contact :**
+### Contact
 If you have any problem about this library, please create an Issue or send us an Email at:
+
 — [kkzhang0808@gmail.com](kkzhang0808@gmail.com)
+
 — [kkzhang0808@mail.ustc.edu.cn](sa517494@mail.ustc.edu.cn)
 
