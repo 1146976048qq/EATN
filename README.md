@@ -38,7 +38,7 @@ To install requirements, please run `pip install -r requirements.txt.`
 
 **Prepare the Pre-trained model :**
 
-— 1. Get the BERT pre-trained model and generate the embeddings ;
+— 1. Get the BERT pre-trained model and generate the embeddings (./word2vec/get_pre_bert.sh) ;
 
 ​               — You can get the Word Embeddings through official [BERT](https://github.com/google-research/bert) or [Bert-As-Service](https://bert-as-service.readthedocs.io/en/latest/) ;
 
@@ -50,7 +50,17 @@ To install requirements, please run `pip install -r requirements.txt.`
 
 
 
-**Run the models :** 
+**Run the baseline models :** 
 
  —  python train_base.py --model_name xxx --dataset xxx
+
+**Run the eatn models :** 
+
+ —  python train_eatn.py
+
+
+**Contact :**
+If you have any problem about this library, please create an Issue or send us an Email at:
+— [kkzhang0808@gmail.com](kkzhang0808@gmail.com)
+— [kkzhang0808@mail.ustc.edu.cn](sa517494@mail.ustc.edu.cn)
 

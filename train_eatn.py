@@ -12,7 +12,7 @@ from torch.nn import functional as F
 import sys
 sys.path.append('../')
 from pre_models import TextNormalization, MultiLabel_Vectorizer, DocProcessor
-from pre_models import BertForCrossAspect
+from models import EATN
 from pre_models import BertMultiTrainer, BertPredictor
 from pre_models import CrossAspectProcessor,get_cross_aspect_batch,accuracy
 from pre_models import BertCrossFeatures
@@ -102,7 +102,7 @@ def main():
     dev_data = get_cross_aspect_batch(source_dev_examples,target_dev_examples,bert_cross_proc,label_available=True, batch_size=params['batch_size'], num_workers=-1)
     logging.info('dev_data {}'.format(dev_data[0]))
     
-    bert_cross_aspect_model = BertForCrossAspect.from_pretrained('/home/kkzhang/bert_pytorch_model/bert_base', params)
+    bert_cross_aspect_model = BertForCrossAspect.from_pretrained('../home/kkzhang/bert_pytorch_model/bert_base', params)
    # bert_aspect_model = BertForAspect.from_pretrained('bert-base-uncased', params)
 
     #device = torch.device('cpu')

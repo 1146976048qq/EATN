@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -78,7 +79,10 @@ class EATN(BertForSequenceClassification):
           
           domain_loss = F.cross_entropy(source_domain_logits, source_domain_labels.view(-1)) + F.cross_entropy(target_domain_logits, target_domain_labels.view(-1))
           aspect_loss = F.cross_entropy(source_aspect_logits, source_aspect_labels.view(-1))
-          mmd_loss = mkmmd(source_aspect_logits, target_domain_logits)
+          
+          mmd_loss_1 = mkmmd(source_output, target_output)
+          mmd_loss_2 = mkmmd(source_aspect_logits, target_domain_logits)
+          mmd_loss = mmd_loss_1 + mmd_loss_2
 
           loss = domain_loss + aspect_loss + mmd_loss
           #return loss, source_domain_logits, target_domain_logits, source_aspect_logits
