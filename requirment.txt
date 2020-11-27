@@ -8,9 +8,11 @@ pandas
 logging
 argparse
 
+numpy
 random
 datetime
-numpy>=1.13.3
-torch>=0.4.0
-transformers
-pytorch_pretrained_bert
+torchvision
+torch>=0.4.0 #PyTorch
+
+transformers 
+pytorch_pretrained_bert #Bert

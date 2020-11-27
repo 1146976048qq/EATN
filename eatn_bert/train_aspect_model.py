@@ -11,10 +11,10 @@ from torch.nn import functional as F
 
 import sys
 sys.path.append('../')
-from deepqa_models import TextNormalization, MultiLabel_Vectorizer, DocProcessor
-from deepqa_models import BertForAspect
-from deepqa_models import BertTrainer, BertPredictor, TextPhraseSimProcessor, get_batch, accuracy
-from deepqa_models import BertInputFeatures
+from pre_models import TextNormalization, MultiLabel_Vectorizer, DocProcessor
+from pre_models import BertForAspect
+from pre_models import BertTrainer, BertPredictor, TextPhraseSimProcessor, get_batch, accuracy
+from pre_models import BertInputFeatures
 from pytorch_pretrained_bert import BertTokenizer
 
 def fill_token(sent, term):

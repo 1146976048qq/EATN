@@ -11,11 +11,11 @@ from torch.nn import functional as F
 
 import sys
 sys.path.append('../')
-from deepqa_models import TextNormalization, MultiLabel_Vectorizer, DocProcessor
-from deepqa_models import BertForCrossAspect
-from deepqa_models import BertMultiTrainer, BertPredictor
-from deepqa_models import CrossAspectProcessor,get_cross_aspect_batch,accuracy
-from deepqa_models import BertCrossFeatures
+from pre_models import TextNormalization, MultiLabel_Vectorizer, DocProcessor
+from pre_models import BertForCrossAspect
+from pre_models import BertMultiTrainer, BertPredictor
+from pre_models import CrossAspectProcessor,get_cross_aspect_batch,accuracy
+from pre_models import BertCrossFeatures
 from pytorch_pretrained_bert import BertTokenizer
 
 

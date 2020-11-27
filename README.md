@@ -16,6 +16,8 @@ Dataset and source code for **"EATN: An Efﬁcient Adaptive Transfer Network for
 
 — sklearn
 
+— other pakages
+
 To install requirements, please run `pip install -r requirements.txt.`
 
 
