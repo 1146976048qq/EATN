@@ -20,8 +20,7 @@ from torch.utils.data import DataLoader, random_split
 
 from data_utils import build_tokenizer, build_embedding_matrix, Tokenizer4Bert, ABSADataset
 
-from models import LSTM, IAN, MemNet, RAM, TD_LSTM, Cabasc, ATAE_LSTM, TNet_LF, AOA, MGAN
-from models.aen import CrossEntropyLoss_LSR, AEN, AEN_BERT
+from models import LSTM, IAN, MemNet, TD_LSTM, ATAE_LSTM, TNet_LF, AOA
 from models.bert_spc import BERT_SPC
 
 logger = logging.getLogger()
@@ -34,15 +33,16 @@ class Instructor:
         self.opt = opt
 
         if 'bert' in opt.model_name:
+            # set bert_based_vocab
             tokenizer = Tokenizer4Bert(opt.max_seq_len, '/data/kkzhang/aaa/command/bert-base-uncased-vocab.txt')
-            #tokenizer = Tokenizer4Bert(opt.max_seq_len, '/home/kkzhang/bert_pytorch_model/bert-large-uncased/bert-large-uncased-vocab.txt')
+            #tokenizer = Tokenizer4Bert(opt.max_seq_len, '/home/kkzhang/bert-large-uncased/bert-large-uncased-vocab.txt')
+            # set bert pre_train model
             bert = BertModel.from_pretrained('/data/kkzhang/WordeEmbedding/bert_base/')
 
             ##### multi gpu ##########
             if torch.cuda.device_count() > 1:
                 logging.info('The device has {} gpus!!!!!!!!!!!!!'.format(torch.cuda.device_count()))
                 bert = nn.DataParallel(bert)
-            #### multi gpu end #########
 
             self.model = opt.model_class(bert, opt).to(opt.device)
         else:
@@ -259,22 +259,12 @@ def main():
             'test': './datasets/semeval14/Restaurants_Train_kkzhang.xml.seg'
             #'test': './datasets/semeval14/Laptops_Train_kkzhang.xml.seg' 
         },
-        #'restaurant': {
-        #    'train': './datasets/semeval14/Restaurants_Train.xml.seg',
-        #    'test': './datasets/semeval14/Restaurants_Test_Gold.xml.seg'
-        #    'test': './datasets/semeval14/Laptops_Test_Gold.xml.seg'
-        #},
 
 	'restaurant-r2l': {
             'train': './datasets/semeval14/Restaurants_Train_kkzhang.xml.seg',
             'test': './datasets/semeval14/Laptops_Train_kkzhang.xml.seg'
             #'test': './datasets/acl-14-short-data/train_kkzhang.raw'
         },
-
-        #'laptop': {
-        #    'train': './datasets/semeval14/Laptops_Train.xml.seg',
-        #    'test': './datasets/semeval14/Laptops_Test_Gold.xml.seg'
-        #}
     
         'laptop-l2t': {
             'train': './datasets/semeval14/Laptops_Train_kkzhang.xml.seg',

@@ -38,9 +38,9 @@ def main():
 
 
     # aspect-category dataset
-    # prefix_train = '../data_after_process/aspect_term/2014_laptop/'
-    # prefix_train = '../data_after_process/aspect_term/2014_resturant/'
-    # prefix_train = '../data_after_process/aspect_term/2014_twitter/'
+    # prefix_train = '../data_after_process/aspect_term/restaurant/'
+    # prefix_train = '../data_after_process/aspect_term/hotel/'
+    # prefix_train = '../data_after_process/aspect_term/beautyspa/'
 
     # prefix_train = '../data_after_process/aspect_category/restaurant/'
     # prefix_train = '../data_after_process/aspect_category/hotel/'
@@ -102,7 +102,7 @@ def main():
     dev_data = get_cross_aspect_batch(source_dev_examples,target_dev_examples,bert_cross_proc,label_available=True, batch_size=params['batch_size'], num_workers=-1)
     logging.info('dev_data {}'.format(dev_data[0]))
     
-    bert_cross_aspect_model = BertForCrossAspect.from_pretrained('../home/kkzhang/bert_pytorch_model/bert_base', params)
+    bert_cross_aspect_model = EATN.from_pretrained('../home/kkzhang/bert_pytorch_model/bert_base', params)
    # bert_aspect_model = BertForAspect.from_pretrained('bert-base-uncased', params)
 
     #device = torch.device('cpu')
