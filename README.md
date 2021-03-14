@@ -1,11 +1,11 @@
 ### EATN 
 
-Dataset and source code for **"EATN: An Efﬁcient Adaptive Transfer Network for Aspect-level Sentiment Analysis".**
+Dataset and source code for our paper: **"EATN: An Efﬁcient Adaptive Transfer Network for Aspect-level Sentiment Analysis".**
 
 
 ### Requirements
 
-— Python3.6
+— Python 3.6
 
 — Numpy 1.13.3
 
@@ -53,7 +53,7 @@ To install requirements, please run `pip install -r requirements.txt.`
 
 **Run the eatn models :** 
 
- —  python train_eatn.py
+ —  python train_eatn.py （*Default transfer task is Laptop-2-Restaurant / L2R；Change parameters in the file!* (=!=)
 
 
 ### Contact
