@@ -22,11 +22,11 @@ To install requirements, please run `pip install -r requirements.txt.`
 
 ### Environment
 
-— OS: CentOS Linux release 7.4.1708
+— OS: CentOS Linux release 7.7.1908
 
-— CPU: Two 2.20 GHz Intel Xeon E5-2650
+— CPU: 64 Intel(R) Xeon(R) Gold 5218 CPU @ 2.30GHz
 
-— GPU: Four Tesla K80 GPU
+— GPU: Four Tesla V100-SXM2 32GB
 
 — CUDA: 10.2
 
