@@ -67,7 +67,7 @@ If you have any problem about this library, please create an Issue or send us an
 ### Citation
 If the data and code are useful for your research, please be kindly to give us stars and cite our paper as follows:
 
-@ARTICLE{9415156,
+```@ARTICLE{9415156,
   author={Zhang, Kai and Liu, Qi and Qian, Hao and Xiang, Biao and Cui, Qing and Zhou, Jun and Chen, Enhong},
   journal={IEEE Transactions on Knowledge and Data Engineering}, 
   title={EATN: An Efficient Adaptive Transfer Network for Aspect-level Sentiment Analysis}, 
@@ -75,4 +75,4 @@ If the data and code are useful for your research, please be kindly to give us s
   volume={},
   number={},
   pages={1-1},
-  doi={10.1109/TKDE.2021.3075238}}
+  doi={10.1109/TKDE.2021.3075238}}```
