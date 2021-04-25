@@ -53,7 +53,7 @@ To install requirements, please run `pip install -r requirements.txt.`
 
 **Run the eatn models :** 
 
- —  python train_eatn.py （*Default transfer task is Laptop-2-Restaurant / L2R；Change parameters in the file!* (=!=)
+ —  python train_eatn.py （*Default transfer task is Laptop-2-Restaurant / L2R；Change parameters in the *.py file!
 
 
 ### Contact
