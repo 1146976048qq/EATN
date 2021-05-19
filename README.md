@@ -1,6 +1,6 @@
 ### EATN 
 
-Dataset and source code for our paper: **"[EATN: An Efﬁcient Adaptive Transfer Network for Aspect-level Sentiment Analysis](https://ieeexplore.ieee.org/document/9415156)".**
+Dataset and source code for our paper: **"[EATN: An Efﬁcient Adaptive Transfer Network for Aspect-level Sentiment Analysis](https://github.com/1146976048qq/EATN/blob/master/EATN_paper.pdf)".**
 
 
 ### Requirements
