@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-# file: BERT_SPC.py
-# author: songyouwei <youwei0314@gmail.com>
-# Copyright (C) 2019. All Rights Reserved.
 import torch
 import torch.nn as nn
 from layers.squeeze_embedding import SqueezeEmbedding

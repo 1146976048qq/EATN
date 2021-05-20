@@ -1,8 +1,3 @@
-# -*- coding: utf-8 -*-
-# file: memnet.py
-# author: songyouwei <youwei0314@gmail.com>
-# Copyright (C) 2018. All Rights Reserved.
-
 from layers.attention import Attention
 import torch
 import torch.nn as nn

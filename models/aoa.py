@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-# file: aoa.py
-# author: gene_zc <gene_zhangchen@163.com>
-# Copyright (C) 2018. All Rights Reserved.
 
 from layers.dynamic_rnn import DynamicLSTM
 import math
