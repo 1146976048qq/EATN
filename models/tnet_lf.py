@@ -1,6 +1,5 @@
 import torch
 import torch.nn as nn
-
 import torch.nn.functional as F
 import numpy
 from layers.dynamic_rnn import DynamicLSTM
@@ -9,7 +8,7 @@ from layers.dynamic_rnn import DynamicLSTM
 class Absolute_Position_Embedding(nn.Module):
     def __init__(self, opt, size=None, mode='sum'):
         self.opt = opt
-        self.size = size  # 必须为偶数
+        self.size = size  
         self.mode = mode
         super(Absolute_Position_Embedding, self).__init__()
 

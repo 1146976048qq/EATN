@@ -234,6 +234,10 @@ def main():
         'aen': AEN,
         'aen_bert': AEN_BERT,
     }
+
+####################### aspect term ###########################
+####################### aspect term ###########################
+####################### aspect term ###########################
     dataset_files = {
         'twitter': {
             'train': './datasets/acl-14-short-data/train.raw',
