@@ -1,4 +1,3 @@
-
 from layers.dynamic_rnn import DynamicLSTM
 import math
 import torch
